@@ -1,0 +1,18 @@
+version: '3'
+services:
+     web:
+       build:
+         context: .
+         #dockerfile: Dockerfile
+       ports:
+         - "8080:80"
+       volumes:
+           - /app/node_modules
+           - .:/app
+     thiea_test:
+           image: theiaide/theia:latest
+           volumes:
+              - .:/home/project
+           ports:
+              - "4500:3000"
+           user: node
